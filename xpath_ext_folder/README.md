@@ -4,12 +4,12 @@ This project includes a web scraping tool to extract the data mapped to a partic
 A YAML script is being used to give the site details including URL and x-path classname.
 
 Directory stucture
-    .
-    │   README.md
-    │   xml_xpath_file_headless.py
-    │
-    └───config
-            sites.yaml
+.
+├── README.md
+├── XPATH_GEN_FOLDER
+│   ├── xml_xpath_file_headless.py
+├── config
+│   └── sites.yaml
 
 `XPATH_GEN_FOLDER`:This folder contains the source code and the configuration files needed to accomplish XPATH data extraction.
 
