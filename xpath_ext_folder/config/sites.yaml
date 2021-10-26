@@ -1,8 +1,0 @@
-#specify URL and x-path class details
-sites:
-  - site: "https://www.fecareers.co.uk/job-results?sort=date#"
-    x-path: "job-location"
-  - site: "https://www.fecareers.co.uk/job-results?page=2&sort=date#"
-    x-path: "job-location"
-  - site: "https://www.fecareers.co.uk/job-results?page=3&sort=date#"
-    x-path: "job-location"
