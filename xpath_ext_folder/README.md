@@ -4,6 +4,7 @@ This project includes a web scraping tool to extract the data mapped to a partic
 A YAML script is being used to give the site details including URL and x-path classname.
 
 Directory stucture
+```
 .
 ├── README.md
 ├── XPATH_GEN_FOLDER
@@ -11,6 +12,7 @@ Directory stucture
 ├── config
 │   └── sites.yaml
 
+```
 `XPATH_GEN_FOLDER`:This folder contains the source code and the configuration files needed to accomplish XPATH data extraction.
 
 `config`:This directory contains the website values for passing the HTML request and obtaining the scraped data included in the YAML based config files.
