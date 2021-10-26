@@ -1,9 +1,10 @@
 ## XPATH EXTRACTOR DOCUMENTATION
 
 This project includes a web scraping tool to extract the data mapped to a particular x-path in a website.
-A YAML script is being used to give the site details including URL and x-path classname.
+A YAML file is being used to provide the configuration including URL and x-path classname to the python application.
 
 Directory stucture
+
 ```
 .
 └── src
@@ -13,27 +14,49 @@ Directory stucture
     └── xml_xpath_file_headless.py
 
 ```
-`src`:This folder contains the source code and the configuration files needed to accomplish XPATH data extraction.
 
-`config`:This directory contains the website values for passing the HTML request and obtaining the scraped data included in the YAML based config files.
+`src`: This folder contains the source code and the configuration file needed to accomplish XPATH data extraction.
+
+`config`: This directory contains the YAML configuration file which is used to specify the required application parameters such as the URL and the X-path class.
 
 ## Examples
 
-With the help of website URL and x-path class in the YAML file, the python program extracts the website data. One example would be using the "https://www.fecareers.co.uk/job-results?sort=date#" (URL) and job-location (x-path class) to extract all the job locations present in the website.
+The YAML file is the main configuration file containing the website URL that needs to be visited and the relevant x-path class required for the python program to extract the website data. The file contains the following structure:
+
+```
+sites:
+  - site: "<Enter the Website URL which needs to be visited>"
+    x-path: "<The x-path that needs to be extracted from the above url>"
+```
+
+The `sites` param is used to denote a list of `site` and the corresponding `x-path` that will be used by the python application to retrieve the relevant information. To include multiple sites, add further entries of `site` and `x-path` and the python application will use these to iterate over the site specific url and x-path.
+
+As an example, if we were to retrieve the x-path `job-location` from the site https://www.fecareers.co.uk/job-results?sort=date#, the configuration params will look like the following:
+
+```
+sites:
+  - site: "https://www.fecareers.co.uk/job-results?sort=date#"
+    x-path: "job-location"
+```
+
+To scrape a new website, add a new entry for the `site` and `x-path` in the YAML configuration file.
 
 ## Environment requirements
 
-Python 3.6.0 or higher
+- Python 3.6.0 or higher
+- requests_html python package
+- yaml python package
 
 ## Running Xpath Extractor
 
-To start with, have python installed on your local machine and then install the dependencies "requests html" and "YAML" libraries through the "pip install" commands in your python terminal.
+To start with, setup your environment with the abovementioned dependencies and execute our python application as follows:
 
-To run the program, the following steps should be done:
+- Enter the details for the website to be scraped in the YAML configuration file (please see example).
+- Run the program using an IDE or via a terminal as follows:
 
-- Check the "sites.yaml" file and make sure if the data extraction is happening at the right URL and Xpath class name. If not, relevant URL and Xpath class name details needs to be updated.
-
-- Next run the program in any comfortable IDE (example: Visual Studio Code) that supports python and the required data will be extracted in the console.
+```
+>> python xml_xpath_file_headless.py
+```
 
 ## Author:
 
